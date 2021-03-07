@@ -24,7 +24,7 @@ network={
 
 6. Eject, Insert and Boot.
 7. Get Raspberry IP from your router web interface.
-8. Use `ssh pi@PI_IP_ADDRESS` with password `raspberry` to connet to the Pi.
+8. Use `ssh pi@PI_IP_ADDRESS` with password `raspberry` to connect to the Pi.
 9. Change Password with `passwd`
 10. Install git: `sudo apt update && sudo apt install git`
 11. Clone this repository: `git clone https://github.com/niki-on-github/Raspberry-USB-Gadget.git`
@@ -35,12 +35,12 @@ network={
 
 ## Use USB Ethernet gadget
 
-Only work ff you have activated the `USB_ETHERNET` function in `/etc/raspi2go.conf`.
+Only work if you have activated the `USB_ETHERNET` function in `/etc/raspi2go.conf`.
 
 1. Wait for a new Wired Connection in the network manager applet. Then set in IPv4-Settings the method to: `Shared to other computers`
 2. reconnect your pi
-3. Wait a view seconds and look at the `arp` table. A new entry with `10.42.0.X` should apear.
-4. Use `ssh` with this ip to connet to the Pi via USB.
+3. Wait a view seconds and look at the `arp` table. A new entry with `10.42.0.X` should appear.
+4. Use `ssh` with this IP to connect to the Pi via USB.
 
 Optional: open the file `/etc/network/interfaces` as root, and add the lines:
 ```
@@ -53,4 +53,4 @@ iface usb0 inet static
     broadcast 10.42.0.255
     gateway 10.42.0.1
 ```
-Now the ip do not change if you reconnect or restart the Pi.
+Now the IP do not change if you reconnect or restart the Pi.
