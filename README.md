@@ -31,3 +31,26 @@ network={
 12. Adjust configuration in `./files/etc/raspi2go.conf`
 13. Setup multi USB gadget with `sudo bash install.sh`
 14. Reboot Pi with `sudo reboot`
+
+
+## Use USB Ethernet gadget
+
+Only work ff you have activated the `USB_ETHERNET` function in `/etc/raspi2go.conf`.
+
+1. Wait for a new Wired Connection in the network manager applet. Then set in IPv4-Settings the method to: `Shared to other computers`
+2. reconnect your pi
+3. Wait a view seconds and look at the `arp` table. A new entry with `10.42.0.X` should apear.
+4. Use `ssh` with this ip to connet to the Pi via USB.
+
+Optional: open the file `/etc/network/interfaces` as root, and add the lines:
+```
+allow-hotplug usb0
+
+iface usb0 inet static
+    address 10.42.0.2
+    netmask 255.255.255.0
+    network 10.42.0.0
+    broadcast 10.42.0.255
+    gateway 10.42.0.1
+```
+Now the ip do not change if you reconnect or restart the Pi.
