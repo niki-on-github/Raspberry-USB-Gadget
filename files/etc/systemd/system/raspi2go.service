@@ -13,7 +13,7 @@
 [Unit]
 Description=Create USB-Gadget configuration
 After=systemd-modules-load.service
- 
+
 [Service]
 Type=oneshot
 RemainAfterExit=true

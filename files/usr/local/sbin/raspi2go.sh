@@ -16,8 +16,6 @@ USBCONF_DIR="/sys/kernel/config/usb_gadget/g1"
 NODE="USB0"
 C=1
 
-# --- initialize gadget   --------------------------------------------------
-
 init_start() {
 
   echo 0x1d6b > idVendor  # Linux Foundation
@@ -36,8 +34,8 @@ init_start() {
 
   mkdir -p strings/"$LANG_ID"
   echo "$SERIAL_NO" > strings/"$LANG_ID"/serialnumber
-  echo "$MANUFACTURER" > strings/"$LANG_ID"/manufacturer 
-  echo "$PRODUCT" > strings/"$LANG_ID"/product 
+  echo "$MANUFACTURER" > strings/"$LANG_ID"/manufacturer
+  echo "$PRODUCT" > strings/"$LANG_ID"/product
 
   mkdir -p "configs/c.$C/strings/$LANG_ID"
   echo "$DESCRIPTION" > "configs/c.$C/strings/$LANG_ID/configuration"
@@ -45,13 +43,10 @@ init_start() {
   echo 250 > "configs/c.$C/MaxPower"
 }
 
-# --- initialize gadget   --------------------------------------------------
-
 init_end() {
+  sleep 2
   ls /sys/class/udc > UDC
 }
-
-# --- create mass-storage gagdet   -------------------------------------------
 
 create_storage() {
   # create (sparse) backing-file if necessary
@@ -74,14 +69,10 @@ create_storage() {
   ln -s "functions/mass_storage.$NODE" "configs/c.$C/"
 }
 
-# --- create serial gadget   -------------------------------------------------
-
 create_serial() {
   mkdir -p "functions/acm.$NODE"
   ln -s "functions/acm.$NODE" "configs/c.$C/"
 }
-
-# --- create network gadget   ------------------------------------------------
 
 create_network() {
   mkdir -p "functions/rndis.$NODE/os_desc/interface.rndis"
@@ -91,8 +82,6 @@ create_network() {
 
   ln -s "functions/rndis.$NODE" "configs/c.$C/"
 }
-
-# --- create keyboard (Human Interface Device: HID) gadget   -----------------
 
 create_hid() {
   mkdir -p functions/hid.$NODE
@@ -104,8 +93,6 @@ create_hid() {
 
   ln -s "functions/hid.$NODE" "configs/c.$C/"
 }
-
-# ---- main program   --------------------------------------------------------
 
 # source configuration file
 . /etc/raspi2go.conf
