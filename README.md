@@ -4,8 +4,8 @@ Setup Script for Raspberry Zero multi-gadget USB-stick
 
 ## Getting Started
 
-1. Download Rasbian or Rasbian lite
-2. Flash Rasbian to SD-Card with `dd`
+1. Download Raspbian or Raspbian lite
+2. Flash Raspbian to SD-Card with `dd`
 3. Mount boot partition from SD-Card
 4. Create a empty file called `ssh` in the mounted boot partition
 5. Create a file named `wpa_supplicant.conf` in the mounted boot partition:
