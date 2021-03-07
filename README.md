@@ -28,6 +28,6 @@ network={
 9. Change Password with `passwd`
 10. Install git: `sudo apt update && sudo apt install git`
 11. Clone this repository: `git clone https://github.com/niki-on-github/Raspberry-USB-Gadget.git`
-12. Adjust configuration in `./files/raspi2go.conf`
+12. Adjust configuration in `./files/etc/raspi2go.conf`
 13. Setup multi USB gadget with `sudo bash install.sh`
 14. Reboot Pi with `sudo reboot`
