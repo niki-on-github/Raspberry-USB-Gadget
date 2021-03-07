@@ -42,7 +42,7 @@ Only work if you have activated the `USB_ETHERNET` function in `/etc/raspi2go.co
 3. Wait a view seconds and look at the `arp` table. A new entry with `10.42.0.X` should appear.
 4. Use `ssh` with this IP to connect to the Pi via USB.
 
-Optional: open the file `/etc/network/interfaces` as root, and add the lines:
+Optional: open the file `/etc/network/interfaces` on the Pi as root, and add the lines:
 ```
 allow-hotplug usb0
 
